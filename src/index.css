@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* ===== html5-qrcode overrides ===== */
+
+#qr-reader-region {
+  position: relative;
+  width: 100% !important;
+  border: none !important;
+}
+
+/* Hide ALL text the library injects — including "Scanner paused" */
+#qr-reader-region span,
+#qr-reader-region a,
+#qr-reader-region img[alt="Info icon"] {
+  display: none !important;
+}
+
+/* Ensure the container doesn't double-show */
+.qr-scanner-wrapper #qr-reader-region {
+  overflow: hidden;
+}
+
+/* Style the video feed */
+#qr-reader-region video {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 0 !important;
+  display: block !important;
+}
+
+/* The scan-region overlay container */
+#qr-reader-region > div {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Hide any "powered by" or file-scan buttons the library adds */
+#qr-reader-region > div > div:last-child {
+  display: none !important;
+}
+
+/* Remove any borders/outlines the library adds */
+#qr-reader-region * {
+  border: none !important;
+  outline: none !important;
+}
+
+#qr-shaded-region {
+  border: none !important;
+}
